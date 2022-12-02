@@ -1,5 +1,5 @@
-import Slider from '~/components/slider'
+import Main from '~/components/main'
 
 export default function Index() {
-  return <Slider></Slider>
+  return <Main></Main>
 }

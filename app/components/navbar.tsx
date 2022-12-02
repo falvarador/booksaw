@@ -7,9 +7,9 @@ export default function Navbar() {
       align='center'
       as='nav'
       direction='row'
-      h={12}
       justifyContent='space-between'
-      w='60vw'
+      w='100%'
+      px={4}
     >
       <Heading as='h1' fontSize='3rem'>
         Book
@@ -19,7 +19,7 @@ export default function Navbar() {
       </Heading>
       <HStack
         fontWeight='regular'
-        letterSpacing='12%'
+        letterSpacing='4'
         spacing={12}
         textStyle='secondary'
         textTransform='uppercase'

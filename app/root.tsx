@@ -44,6 +44,10 @@ export const links: LinksFunction = () => {
     {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet'
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet'
     }
   ]
 }

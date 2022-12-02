@@ -1,16 +1,28 @@
 import type { ThemeConfig } from '@chakra-ui/react'
-import { extendTheme } from '@chakra-ui/react'
+import { color, extendTheme } from '@chakra-ui/react'
+import { mode } from '@chakra-ui/theme-tools'
+
+const primary = '#F3F2EC'
+const secondary = '#232323'
 
 export const theme: ThemeConfig = extendTheme({
   colors: {
-    primary: '#F3F2EC'
+    primary,
+    secondary
   },
   fonts: {
-    heading: `'Cormorant Unicase', 'Plus Jakarta Sans', sans-serif`,
-    body: `'Cormorant Unicase', 'Plus Jakarta Sans', sans-serif`
+    heading: `'Cormorant Unicase', 'Plus Jakarta Sans', 'Prata', sans-serif`,
+    body: `'Cormorant Unicase', 'Plus Jakarta Sans', 'Prata', sans-serif`
   },
   sizes: {
     container: {}
+  },
+  styles: {
+    global: (props: any) => ({
+      body: {
+        bg: mode(primary, secondary)(props)
+      }
+    })
   },
   textStyles: {
     primary: {
@@ -18,8 +30,11 @@ export const theme: ThemeConfig = extendTheme({
     },
     secondary: {
       fontFamily: 'Plus Jakarta Sans'
+    },
+    tertiary: {
+      fontFamily: 'Prata'
     }
   },
   initialColorMode: 'light',
-  useSystemColorMode: true
+  useSystemColorMode: false
 })
