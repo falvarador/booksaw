@@ -1,20 +1,42 @@
-import { Button as ChakraButton } from '@chakra-ui/react'
-import { RxArrowRight } from 'react-icons/rx'
+import { Box } from '@chakra-ui/react'
+import { Link } from '@remix-run/react'
 
-export default function Button() {
+import type { IconType } from 'react-icons/lib'
+
+type ButtonProps = {
+  icon: IconType
+  text: string
+  to: string
+}
+
+export default function Button({ icon, text, to }: ButtonProps) {
   return (
-    <ChakraButton
-      rightIcon={<RxArrowRight />}
-      borderRadius='none'
-      colorScheme='primary'
+    <Box
+      _hover={{ bg: 'tertiaryAlpha' }}
+      alignItems='center'
+      as={Link}
+      to={to}
+      bg='transparent'
+      border='1px'
+      borderColor='tertiary'
+      color='black'
+      cursor='pointer'
+      display='flex'
+      fontSize={14}
       fontWeight={400}
+      h={14}
+      justifyContent='center'
+      p={4}
+      px='8px'
       py={6}
+      textAlign='center'
       textStyle='secondary'
       textTransform='uppercase'
-      variant='outline'
+      transition='0.2s'
       w='44'
     >
-      READ MORE
-    </ChakraButton>
+      {text}
+      <Box as={icon} ml={2} />
+    </Box>
   )
 }

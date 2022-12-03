@@ -1,20 +1,22 @@
 import { HStack, Image, Text, VStack } from '@chakra-ui/react'
 
+import { RxArrowRight } from 'react-icons/rx'
+
 import Background from './background'
 import Button from './button'
 
-export default function Main() {
+type MainProps = {
+  title: string
+  desc: string
+  image: string
+  imageAlt: string
+}
+
+export default function Main({ title, desc, image, imageAlt }: MainProps) {
   return (
-    <HStack
-      align='center'
-      as='main'
-      display='flex'
-      flexShrink='1'
-      justify='space-between'
-      mt={48}
-    >
+    <HStack align='center' as='main' display='flex' justify='space-between'>
       <Background />
-      <VStack as='aside' spacing={12} alignItems='flex-start'>
+      <VStack as='article' spacing={12} alignItems='flex-start'>
         <Text
           as='h2'
           fontSize={'6xl'}
@@ -23,20 +25,14 @@ export default function Main() {
           textStyle='tertiary'
           textTransform='capitalize'
         >
-          Life of the wild
+          {title}
         </Text>
         <Text textStyle='secondary' textAlign='justify' w='lg'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
-          feugiat amet, libero ipsum enim pharetra hac. Urna commodo, lacus ut
-          magna velit eleifend. Amet, quis urna, a eu.
+          <q>{desc}</q>
         </Text>
-        <Button />
+        <Button to='/demo' text='READ MORE' icon={RxArrowRight} />
       </VStack>
-      <Image
-        objectFit='cover'
-        src='https://bit.ly/dan-abramov'
-        alt='Dan Abramov'
-      />
+      <Image objectFit='cover' w='100%' src={image} alt={imageAlt} />
     </HStack>
   )
 }

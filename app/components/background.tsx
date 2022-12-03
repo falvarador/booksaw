@@ -2,7 +2,14 @@ import { Stack } from '@chakra-ui/react'
 
 export default function Background() {
   return (
-    <Stack h='96' right='36' overflow='hidden' position='absolute' zIndex='-1'>
+    <Stack
+      as='span'
+      h='96'
+      right='36'
+      overflow='hidden'
+      position='absolute'
+      zIndex='-1'
+    >
       <svg
         width='451'
         height='562'

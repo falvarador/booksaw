@@ -1,5 +1,6 @@
-import { Heading, HStack, Link, Stack, Text } from '@chakra-ui/react'
-import { NavLink } from '@remix-run/react'
+import { Heading, HStack, Stack, Text } from '@chakra-ui/react'
+
+import Link from './link'
 
 export default function Navbar() {
   return (
@@ -24,18 +25,10 @@ export default function Navbar() {
         textStyle='secondary'
         textTransform='uppercase'
       >
-        <Link as={NavLink} to='/' variant='link'>
-          Home
-        </Link>
-        <Link as={NavLink} to='/books' variant='link'>
-          Books
-        </Link>
-        <Link as={NavLink} to='/about' variant='link'>
-          About
-        </Link>
-        <Link as={NavLink} to='/contact' variant='link'>
-          Contact
-        </Link>
+        <Link to='/'>Home</Link>
+        <Link to='/about'>About</Link>
+        <Link to='/books'>Books</Link>
+        <Link to='/contact'>Contact</Link>
       </HStack>
     </Stack>
   )

@@ -1,14 +1,4 @@
-// root.tsx
-import React, { useContext, useEffect } from 'react'
-
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData
-} from '@remix-run/react'
+import { useLoaderData } from '@remix-run/react'
 import type {
   MetaFunction,
   LinksFunction,
@@ -20,15 +10,15 @@ import {
   cookieStorageManagerSSR,
   localStorageManager
 } from '@chakra-ui/react'
-import { withEmotionCache } from '@emotion/react'
 
-import { ServerStyleContext, ClientStyleContext } from '~/styles/context'
 import { theme } from '~/styles/theme'
 
-import Layout from '~/layout'
+import Document from '~/layouts/document'
+import Layout from '~/layouts/layout'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
+  encoding: 'utf-8',
   title: 'Booksaw | A better way to get your next free ebook',
   viewport: 'width=device-width,initial-scale=1'
 })
@@ -55,53 +45,6 @@ export const links: LinksFunction = () => {
 export const loader: LoaderFunction = async ({ request }) => {
   return request.headers.get('cookie') ?? ''
 }
-
-interface DocumentProps {
-  children: React.ReactNode
-}
-
-const Document = withEmotionCache(
-  ({ children }: DocumentProps, emotionCache) => {
-    const serverStyleData = useContext(ServerStyleContext)
-    const clientStyleData = useContext(ClientStyleContext)
-
-    // Only executed on client
-    useEffect(() => {
-      // re-link sheet container
-      emotionCache.sheet.container = document.head
-      // re-inject tags
-      const tags = emotionCache.sheet.tags
-      emotionCache.sheet.flush()
-      tags.forEach(tag => {
-        ;(emotionCache.sheet as any)._insertTag(tag)
-      })
-      // reset cache to reapply global styles
-      clientStyleData?.reset()
-    }, [])
-
-    return (
-      <html lang='en'>
-        <head>
-          <Meta />
-          <Links />
-          {serverStyleData?.map(({ key, ids, css }) => (
-            <style
-              key={key}
-              data-emotion={`${key} ${ids.join(' ')}`}
-              dangerouslySetInnerHTML={{ __html: css }}
-            />
-          ))}
-        </head>
-        <body>
-          {children}
-          <ScrollRestoration />
-          <Scripts />
-          <LiveReload />
-        </body>
-      </html>
-    )
-  }
-)
 
 export default function App() {
   const cookies = useLoaderData()
