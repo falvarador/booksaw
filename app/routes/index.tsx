@@ -1,14 +1,16 @@
-import type { LoaderFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
+import type { LoaderFunction } from '@remix-run/node'
+
+import { Container } from '@chakra-ui/react'
 
 import type { LoaderData } from '~/types/loader'
 
 import { getBook } from '~/services/book.server'
 
 import AssociatedWith from '~/components/associated-with'
+import FeatureBooks from '~/components/feature-books'
 import Main from '~/components/main'
-import { Container } from '@chakra-ui/react'
 
 export const loader: LoaderFunction = async () => {
   return json<LoaderData>({
@@ -31,6 +33,7 @@ export default function Index() {
         ></Main>
       </Container>
       <AssociatedWith />
+      <FeatureBooks />
     </>
   )
 }

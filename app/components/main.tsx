@@ -2,8 +2,8 @@ import { HStack, Image, Text, VStack } from '@chakra-ui/react'
 
 import { RxArrowRight } from 'react-icons/rx'
 
-import Background from './background'
-import Button from './button'
+import Background from './commons/background'
+import Button from './commons/button'
 
 type MainProps = {
   title: string

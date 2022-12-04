@@ -1,5 +1,5 @@
 import { Outlet } from '@remix-run/react'
-import Header from '~/components/header'
+import Header from '~/components/commons/header'
 
 export default function Layout() {
   return (
