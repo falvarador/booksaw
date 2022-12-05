@@ -1,20 +1,15 @@
-import { useLoaderData } from '@remix-run/react'
-import type {
-  MetaFunction,
-  LinksFunction,
-  LoaderFunction
-} from '@remix-run/node' // Depends on the runtime you choose
-
+import type { LinksFunction, MetaFunction } from '@remix-run/node'
 import {
-  ChakraProvider,
-  cookieStorageManagerSSR,
-  localStorageManager
-} from '@chakra-ui/react'
+  Links,
+  LiveReload,
+  Meta,
+  Scripts,
+  ScrollRestoration
+} from '@remix-run/react'
 
-import { theme } from '~/styles/theme'
+import Layout from './layouts/layout'
 
-import Document from '~/layouts/document'
-import Layout from '~/layouts/layout'
+import styles from './styles/app.css'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -33,34 +28,29 @@ export const links: LinksFunction = () => {
     },
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet'
+      href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"'
     },
     {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet'
-    }
+    },
+    { rel: 'stylesheet', href: styles }
   ]
 }
 
-export const loader: LoaderFunction = async ({ request }) => {
-  return request.headers.get('cookie') ?? ''
-}
-
 export default function App() {
-  const cookies = useLoaderData()
-
   return (
-    <Document>
-      <ChakraProvider
-        theme={theme}
-        colorModeManager={
-          typeof cookies === 'string'
-            ? cookieStorageManagerSSR(cookies)
-            : localStorageManager
-        }
-      >
+    <html lang='en'>
+      <head>
+        <Meta />
+        <Links />
+      </head>
+      <body className='bg-primary font-prata'>
         <Layout />
-      </ChakraProvider>
-    </Document>
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
   )
 }

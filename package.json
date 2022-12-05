@@ -2,21 +2,18 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev"
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.4.2",
-    "@emotion/react": "11.10.5",
-    "@emotion/server": "11.10.0",
-    "@emotion/styled": "11.10.5",
     "@remix-run/node": "1.8.0",
     "@remix-run/react": "1.8.0",
     "@remix-run/vercel": "1.8.0",
     "@vercel/node": "2.6.2",
-    "framer-motion": "6.5.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react": "18.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "1.8.0",
@@ -24,10 +21,15 @@
     "@remix-run/serve": "1.8.0",
     "@types/react-dom": "18.0.8",
     "@types/react": "18.0.25",
+    "autoprefixer": "10.4.13",
+    "concurrently": "7.6.0",
     "eslint-config-prettier": "8.5.0",
     "eslint": "8.27.0",
+    "postcss": "8.4.19",
+    "prettier-plugin-tailwindcss": "0.2.0",
     "react-icons": "4.7.1",
     "standard": "17.0.0",
+    "tailwindcss": "3.2.4",
     "typescript": "4.8.4"
   },
   "engines": {

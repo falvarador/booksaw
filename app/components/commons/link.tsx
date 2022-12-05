@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react'
 
-import { Link as ChakraLink } from '@chakra-ui/react'
-
 import { NavLink } from '@remix-run/react'
 
 type LinkProps = {
@@ -11,8 +9,13 @@ type LinkProps = {
 
 export default function Link({ children, to }: LinkProps) {
   return (
-    <ChakraLink as={NavLink} to={to} _activeLink={{ color: 'quaternary' }}>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        isActive ? 'text-quaternary hover:underline' : 'hover:underline'
+      }
+    >
       {children}
-    </ChakraLink>
+    </NavLink>
   )
 }

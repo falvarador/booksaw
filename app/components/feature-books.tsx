@@ -1,24 +1,40 @@
-import { HStack, Text, VStack } from '@chakra-ui/react'
-
 import Book from './commons/book'
-import Heading from './commons/heading'
 
 const subtitle = 'Some quality items'.toUpperCase()
 
 export default function FeatureBooks() {
   return (
-    <VStack as='section' justify='space-evenly' align='center' mt='32'>
-      <Text textStyle='secondary' fontSize='sm' color='sextenary' mb={2}>
+    <>
+      <p className='mt-32 text-center font-plus_jakarta_sans text-sm text-sextenary'>
         {subtitle}
-      </Text>
-      <Heading as='h2'>Featured Books</Heading>
-      <HStack>
-        <Book
-          author='Armor Ramsey'
-          price='40.00'
-          title='Simple way of piece life'
-        />
-      </HStack>
-    </VStack>
+      </p>
+      <section className='mx-auto mt-12 flex max-w-6xl flex-col items-center justify-evenly border-t border-b border-octonary'>
+        <h2 className='mb-14 -mt-8 bg-primary px-16 font-prata text-5xl'>
+          Featured Books
+        </h2>
+        <section className='flex gap-10'>
+          <Book
+            author='Armor Ramsey'
+            price='40.00'
+            title='Simple way of piece life'
+          />
+          <Book
+            author='Armor Ramsey'
+            price='40.00'
+            title='Simple way of piece life'
+          />
+          <Book
+            author='Armor Ramsey'
+            price='40.00'
+            title='Simple way of piece life'
+          />
+          <Book
+            author='Armor Ramsey'
+            price='40.00'
+            title='Simple way of piece life'
+          />
+        </section>
+      </section>
+    </>
   )
 }

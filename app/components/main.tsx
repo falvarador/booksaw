@@ -1,5 +1,3 @@
-import { HStack, Image, Text, VStack } from '@chakra-ui/react'
-
 import { RxArrowRight } from 'react-icons/rx'
 
 import Background from './commons/background'
@@ -14,25 +12,16 @@ type MainProps = {
 
 export default function Main({ title, desc, image, imageAlt }: MainProps) {
   return (
-    <HStack align='center' as='main' display='flex' justify='space-between'>
+    <main className='mx-auto mt-28 flex max-w-6xl items-center p-4'>
       <Background />
-      <VStack as='article' spacing={12} alignItems='flex-start'>
-        <Text
-          as='h2'
-          fontSize={'6xl'}
-          fontWeight={400}
-          noOfLines={2}
-          textStyle='tertiary'
-          textTransform='capitalize'
-        >
-          {title}
-        </Text>
-        <Text textStyle='secondary' textAlign='justify' w='lg'>
+      <article className='flex w-2/4 flex-col items-start space-y-12'>
+        <h2 className='font-prata text-6xl font-normal capitalize'>{title}</h2>
+        <p className='text-justify font-plus_jakarta_sans'>
           <q>{desc}</q>
-        </Text>
+        </p>
         <Button to='/demo' text='READ MORE' icon={RxArrowRight} />
-      </VStack>
-      <Image objectFit='cover' w='100%' src={image} alt={imageAlt} />
-    </HStack>
+      </article>
+      <img className='w-2/4 object-cover' src={image} alt={imageAlt} />
+    </main>
   )
 }

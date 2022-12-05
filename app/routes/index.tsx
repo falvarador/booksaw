@@ -2,8 +2,6 @@ import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunction } from '@remix-run/node'
 
-import { Container } from '@chakra-ui/react'
-
 import type { LoaderData } from '~/types/loader'
 
 import { getBook } from '~/services/book.server'
@@ -24,14 +22,7 @@ export default function Index() {
 
   return (
     <>
-      <Container as='section' maxW='container.xl'>
-        <Main
-          title={title}
-          desc={desc}
-          image={image}
-          imageAlt={imageAlt}
-        ></Main>
-      </Container>
+      <Main title={title} desc={desc} image={image} imageAlt={imageAlt}></Main>
       <AssociatedWith />
       <FeatureBooks />
     </>

@@ -1,10 +1,9 @@
-import { Container } from '@chakra-ui/react'
 import Navbar from './navbar'
 
 export default function Header() {
   return (
-    <Container as='header' maxW='8xl' bg='primary'>
+    <header className='my-0 mx-auto max-w-7xl bg-primary'>
       <Navbar />
-    </Container>
+    </header>
   )
 }

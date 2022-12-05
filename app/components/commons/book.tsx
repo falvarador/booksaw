@@ -1,5 +1,3 @@
-import { Box, Text, Image, VStack } from '@chakra-ui/react'
-
 type BookProps = {
   author: string
   price: string
@@ -8,40 +6,27 @@ type BookProps = {
 
 export default function Book({ author, price, title }: BookProps) {
   return (
-    <VStack as='article' w='100%' maxW='sm' overflow='hidden'>
-      <Box bg='septenary' border='1px solid' borderColor='septenaryStroke'>
-        <Image
+    <article className='w-full max-w-sm overflow-hidden'>
+      <div className='border border-solid border-septenaryStroke bg-septenary'>
+        <img
           src='https://itbook.store/img/books/9781617294136.png'
           alt='book cover'
-          w='100%'
-          h='100%'
-          objectFit='cover'
-          filter="drop-shadow='3px 5px 2px rgb(0 0 0 / 0.4)"
+          className='h-full w-full object-cover drop-shadow-lg filter'
         />
-      </Box>
-      <Box p='4'>
-        <Text as='h3' color='quaternary' fontSize={24} textStyle='tertiary'>
-          {title}
-        </Text>
-        <Text
-          color='sextenary'
-          fontSize='sm'
-          mt={2}
-          textAlign='center'
-          textStyle='secondary'
-        >
+      </div>
+      <div className='p-4'>
+        <h3 className='text-center font-prata text-lg font-normal text-quaternary'>
+          {title.replace(/(^\w{1})|(\s+\w{1})/g, letter =>
+            letter.toUpperCase()
+          )}
+        </h3>
+        <p className='mt-2 text-center font-plus_jakarta_sans text-sm font-normal text-sextenary'>
           {author}
-        </Text>
-        <Text
-          color='sextenary'
-          fontSize='sm'
-          mt={4}
-          textAlign='center'
-          textStyle='tertiary'
-        >
+        </p>
+        <p className='mt-4 text-center font-prata text-sm font-normal text-sextenary'>
           ${price}
-        </Text>
-      </Box>
-    </VStack>
+        </p>
+      </div>
+    </article>
   )
 }
