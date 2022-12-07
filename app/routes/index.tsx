@@ -12,7 +12,7 @@ import Main from '~/components/main'
 
 export const loader: LoaderFunction = async () => {
   return json<LoaderData>({
-    book: await getBook('9781484254455')
+    book: await getBook('9781617294136')
   })
 }
 

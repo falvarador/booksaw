@@ -2,7 +2,7 @@ import Icon from './icons/icon'
 
 export default function AssociatedWith() {
   return (
-    <section className='mt-24 flex items-center justify-evenly bg-quintenary p-16'>
+    <section className='mt-24 flex flex-col items-center justify-evenly bg-quintenary p-16 md:flex-row'>
       <Icon icon={1} alt='Booksaw' />
       <Icon icon={2} alt='Bookstore' />
       <Icon icon={3} alt='Bookdoor' />

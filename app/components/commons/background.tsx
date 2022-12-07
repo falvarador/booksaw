@@ -1,9 +1,8 @@
 export default function Background() {
   return (
-    <span className='absolute right-72 top-24 -z-10 h-16 overflow-visible'>
+    <span className='absolute right-16 top-36 -z-10 hidden h-16 overflow-visible md:right-32 md:block'>
       <svg
-        width='451'
-        height='562'
+        className='h-96 w-96'
         viewBox='0 0 451 562'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

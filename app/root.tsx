@@ -13,7 +13,6 @@ import styles from './styles/app.css'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  encoding: 'utf-8',
   title: 'Booksaw | A better way to get your next free ebook',
   viewport: 'width=device-width,initial-scale=1'
 })
